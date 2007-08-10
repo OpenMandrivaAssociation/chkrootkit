@@ -10,7 +10,7 @@
 
 %define name	chkrootkit
 %define version	0.47
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Summary:	Check rootkits
 Name:		%{name}
@@ -60,7 +60,7 @@ install -d %{buildroot}%{_sbindir}
 install -d %{buildroot}%{_libdir}/%{name}
 
 install chkrootkit %{buildroot}%{_sbindir}/
-install check_wtmpx chklastlog chkproc chkutmp chkwtmp ifpromisc strings-static %{buildroot}%{_libdir}/%{name}/
+install check_wtmpx chkdirs chklastlog chkproc chkutmp chkwtmp ifpromisc strings-static %{buildroot}%{_libdir}/%{name}/
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
