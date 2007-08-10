@@ -10,7 +10,7 @@
 
 %define name	chkrootkit
 %define version	0.47
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Summary:	Check rootkits
 Name:		%{name}
@@ -48,9 +48,9 @@ done
 
 %if %{build_diet}
 # OE: use the power of dietlibc
-make CC="diet gcc" CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTEMP_FILENAME='\"/var/log/wtmp\"' -Os  -s -static" LDFLAGS=-static
+make CC="diet gcc" CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_FILENAME='\"/var/log/wtmp\"' -Os  -s -static" LDFLAGS=-static
 %else
-make CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTEMP_FILENAME='\"/var/log/wtmp\"'" LDFLAGS=-static
+make CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_FILENAME='\"/var/log/wtmp\"'" LDFLAGS=-static
 %endif
 
 %install
