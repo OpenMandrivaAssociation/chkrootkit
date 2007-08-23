@@ -22,7 +22,7 @@ Patch0:		chkrootkit-0.47-chkproc.patch
 URL:		http://www.chkrootkit.org/
 License:	BSD
 Group:		Monitoring
-Requires:	binutils, fileutils, findutils, gawk, grep, net-tools, procps, sed, sh-utils, textutils
+Requires:	binutils, coreutils, findutils, gawk, grep, net-tools, procps, sed
 BuildRequires:  glibc-static-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
