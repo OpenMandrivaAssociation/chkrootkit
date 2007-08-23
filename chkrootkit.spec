@@ -10,7 +10,7 @@
 
 %define name	chkrootkit
 %define version	0.47
-%define release	%mkrel 3
+%define release	%mkrel 4
 
 Summary:	Check rootkits
 Name:		%{name}
