@@ -24,7 +24,6 @@ License:	BSD
 Group:		Monitoring
 Requires:	binutils, coreutils, findutils, gawk, grep, net-tools, procps, sed
 BuildRequires:  glibc-static-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %if %{build_diet}
 BuildRequires:	dietlibc-devel >= 0.20-1mdk
