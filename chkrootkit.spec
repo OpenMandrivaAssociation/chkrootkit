@@ -8,14 +8,10 @@
 # rpm -ba|--rebuild --with 'xxx'
 %{?_with_diet: %{expand: %%define build_diet 1}}
 
-%define name	chkrootkit
-%define version	0.48
-%define release	%mkrel 1
-
 Summary:	Check rootkits
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		chkrootkit
+Version:	0.48
+Release:	%mkrel 2
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
 # (blino) fix check of chkproc in lkm test
 #Patch0:		chkrootkit-0.47-chkproc.patch
@@ -27,7 +23,7 @@ BuildRequires:  glibc-static-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %if %{build_diet}
-BuildRequires:	dietlibc-devel >= 0.20-1mdk
+BuildRequires:	dietlibc-devel >= 0.32
 %endif
 
 %description
@@ -54,7 +50,7 @@ make CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_F
 %endif
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_sbindir}
 install -d %{buildroot}%{_libdir}/%{name}
@@ -63,12 +59,10 @@ install chkrootkit %{buildroot}%{_sbindir}/
 install check_wtmpx chkdirs chklastlog chkproc chkutmp chkwtmp ifpromisc strings-static %{buildroot}%{_libdir}/%{name}/
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc ACKNOWLEDGMENTS README* COPYRIGHT
 %{_sbindir}/*
 %{_libdir}/%{name}
-
-
