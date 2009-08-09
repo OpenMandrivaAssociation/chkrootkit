@@ -10,8 +10,8 @@
 
 Summary:	Check rootkits
 Name:		chkrootkit
-Version:	0.48
-Release:	%mkrel 3
+Version:	0.49
+Release:	%mkrel 1
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
 # (blino) fix check of chkproc in lkm test
 #Patch0:		chkrootkit-0.47-chkproc.patch
