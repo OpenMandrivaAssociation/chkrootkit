@@ -11,10 +11,9 @@
 Summary:	Check rootkits
 Name:		chkrootkit
 Version:	0.49
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
-# (blino) fix check of chkproc in lkm test
-#Patch0:		chkrootkit-0.47-chkproc.patch
+Patch0:     chkrootkit_fix_apache_false_positive.diff
 URL:		http://www.chkrootkit.org/
 License:	BSD
 Group:		Monitoring
@@ -32,7 +31,7 @@ Chkrootkit is a tool to locally check for signs of a rootkit.
 %prep
 
 %setup -q
-#%patch0 -p1 -b .chkproc
+%patch0 -p0
 
 # instead of a static patch
 chmod 644 *
