@@ -11,9 +11,10 @@
 Summary:	Check rootkits
 Name:		chkrootkit
 Version:	0.49
-Release:	%mkrel 3
+Release:	%mkrel 4
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
 Patch0:     chkrootkit_fix_apache_false_positive.diff
+Patch1:		chkrootkit-0.49-bug57979.diff
 URL:		http://www.chkrootkit.org/
 License:	BSD
 Group:		Monitoring
@@ -32,6 +33,7 @@ Chkrootkit is a tool to locally check for signs of a rootkit.
 
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 # instead of a static patch
 chmod 644 *
