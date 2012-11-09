@@ -1,0 +1,17 @@
+--- chkrootkit	2009-07-30 16:10:54.000000000 +0200
++++ chkrootkit.oden	2010-03-11 14:10:46.694237960 +0100
+@@ -1232,12 +1232,9 @@
+ {
+    ## Check if -fstype nfs works
+    findargs=""
+-   if find /etc -maxdepth 0 >/dev/null 2>&1; then
+-        find /etc ! -fstype nfs -maxdepth 0 >/dev/null 2>&1 && \
+-           findargs="! -fstype nfs "
+-   elif find /etc -prune > /dev/null 2>&1; then
++   if find /etc -prune > /dev/null 2>&1; then
+         find /etc ! -fstype nfs -prune > /dev/null 2>&1 && \
+-           findargs="! -fstype nfs "
++           findargs="-fstype nfs -prune -false -o"
+    fi
+ }
+ 

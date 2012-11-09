@@ -1,0 +1,13 @@
+Index: chkutmp.c
+===================================================================
+--- chkutmp.c
++++ chkutmp.c	2009-09-04 13:19:29.000000000 +0200
+@@ -43,7 +43,7 @@
+ #endif
+ #include <ctype.h>
+ 
+-#define MAXREAD 1024
++#define MAXREAD 2048
+ #define MAXBUF 4096
+ #define MAXLENGTH 256
+ #define UT_PIDSIZE 12
