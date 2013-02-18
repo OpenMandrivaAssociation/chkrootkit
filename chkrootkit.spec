@@ -1,6 +1,8 @@
 # OE: conditional switches
 #(ie. use with rpm --rebuild):
 #	--with diet	Compile chkrootkit against dietlibc
+%define _enable_debug_packages %{nil}
+%define debug_package          %{nil}
 
 %define build_diet 0
 
@@ -11,7 +13,7 @@
 Summary:	Check rootkits
 Name:		chkrootkit
 Version:	0.49
-Release:	%mkrel 5
+Release:	6
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
 Patch0:     chkrootkit_fix_apache_false_positive.diff
 Patch1:		chkrootkit-0.49-bug57979.diff
