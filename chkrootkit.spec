@@ -1,25 +1,16 @@
 %define _enable_debug_packages %{nil}
 %define debug_package          %{nil}
 
-%define build_diet 0
-
-# commandline overrides:
-# rpm -ba|--rebuild --with 'xxx'
-%{?_with_diet: %{expand: %%define build_diet 1}}
-
 Summary:	Check rootkits
 Name:		chkrootkit
-Version:	0.49
-Release:	8
+Version:	0.50
+Release:	1
 License:	BSD
 Group:		Monitoring
 Url:		http://www.chkrootkit.org/
-Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.gz
 Patch0:		chkrootkit_fix_apache_false_positive.diff
 Patch1:		chkrootkit-0.49-bug57979.diff
-%if %{build_diet}
-BuildRequires:	dietlibc-devel >= 0.32
-%endif
 BuildRequires:	glibc-static-devel
 Requires:	binutils
 Requires:	coreutils
@@ -52,12 +43,7 @@ for i in `ls -1 *.c|sed "s/\.c//"`; do
 done
 
 %build
-%if %{build_diet}
-# OE: use the power of dietlibc
-make CC="diet gcc" CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_FILENAME='\"/var/log/wtmp\"' -Os  -s -static" LDFLAGS=-static
-%else
-make CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_FILENAME='\"/var/log/wtmp\"'" LDFLAGS=-static
-%endif
+%make CC=gcc CFLAGS="-DHAVE_LASTLOG_H -DLASTLOG_FILENAME='\"/var/log/lastlog\"' -DWTMP_FILENAME='\"/var/log/wtmp\"'" LDFLAGS=-static
 
 %install
 install -d %{buildroot}%{_sbindir}
