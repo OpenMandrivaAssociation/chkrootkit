@@ -32,9 +32,7 @@ Chkrootkit is a tool to locally check for signs of a rootkit.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%patch0 -p0
-%patch1 -p0
+%autosetup -p0
 
 # instead of a static patch
 chmod 644 *
