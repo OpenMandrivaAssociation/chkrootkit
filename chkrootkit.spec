@@ -3,12 +3,12 @@
 
 Summary:	Check rootkits
 Name:		chkrootkit
-Version:	0.55
+Version:	0.57
 Release:	1
 License:	BSD
 Group:		Monitoring
 Url:		http://www.chkrootkit.org/
-Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{version}.tar.gz
 Patch0:		chkrootkit_fix_apache_false_positive.diff
 Patch1:		chkrootkit-0.49-bug57979.diff
 BuildRequires:	glibc-static-devel
@@ -32,7 +32,7 @@ Chkrootkit is a tool to locally check for signs of a rootkit.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup
 %patch0 -p0
 %patch1 -p0
 
