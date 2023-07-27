@@ -3,7 +3,7 @@
 
 Summary:	Check rootkits
 Name:		chkrootkit
-Version:	0.57
+Version:	0.58
 Release:	1
 License:	BSD
 Group:		Monitoring
