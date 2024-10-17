@@ -7,7 +7,7 @@ Version:	0.58b
 Release:	1
 License:	BSD
 Group:		Monitoring
-Url:		http://www.chkrootkit.org/
+Url:		https://www.chkrootkit.org/
 Source0:	ftp://ftp.pangeia.com.br/pub/seg/pac/%{name}.tar.gz
 Patch0:		chkrootkit_fix_apache_false_positive.diff
 #Patch1:		chkrootkit-0.49-bug57979.diff
